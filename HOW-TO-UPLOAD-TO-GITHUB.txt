@@ -1,0 +1,58 @@
+THE SCENT BAR BELFAST — GITHUB UPLOAD FIX
+==========================================
+
+Your Vercel build failed because GitHub has all files in the WRONG place.
+All files must be inside FOLDERS, not loose at the root.
+
+CORRECT structure on GitHub should look like this:
+
+  app/              ← folder (contains page.tsx, layout.tsx, etc.)
+  components/       ← folder
+  lib/              ← folder
+  public/           ← folder (contains images/)
+  package.json
+  package-lock.json
+  tsconfig.json
+  next.config.ts
+  postcss.config.mjs
+  eslint.config.mjs
+  .gitignore
+
+STEP BY STEP FIX:
+-----------------
+
+1. Go to: https://github.com/Harpo22/Scent-bar-belfast
+
+2. DELETE ALL existing files in the repo
+   (Click each file → trash icon, OR delete the whole repo and create a new one)
+
+3. Click "Add file" → "Upload files"
+
+4. Open this folder on your Desktop:
+   the-scent-bar-belfast-upload
+
+5. Drag these 4 FOLDERS into GitHub (drag the whole folder, not files inside):
+   - app
+   - components
+   - lib
+   - public
+
+6. Also drag these files from the same folder:
+   - package.json
+   - package-lock.json
+   - tsconfig.json
+   - next.config.ts
+   - postcss.config.mjs
+   - eslint.config.mjs
+   - .gitignore
+   - README.md
+
+7. BEFORE clicking Commit — check the preview shows:
+   app/page.tsx        ✓  (NOT just page.tsx at root)
+   public/images/      ✓  (NOT logo.png at root)
+
+8. Click "Commit changes"
+
+9. Go to Vercel → your project → Deployments → Redeploy
+
+DO NOT upload the .zip file to GitHub — it flattens the folders!
