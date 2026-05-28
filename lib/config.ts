@@ -1,5 +1,5 @@
 /** Change this to your WhatsApp business number (country code, no + or spaces). */
-export const WHATSAPP_NUMBER = "447342252057";
+export const WHATSAPP_NUMBER = "447484877319";
 
 export const SITE = {
   name: "The Scent Bar Belfast",
