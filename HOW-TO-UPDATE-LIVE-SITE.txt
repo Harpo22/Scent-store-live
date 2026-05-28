@@ -1,0 +1,71 @@
+THE SCENT BAR BELFAST — HOW TO UPDATE YOUR LIVE WEBSITE
+========================================================
+
+PROBLEM: GitHub still has OLD files. Vercel builds from GitHub, so your
+live site won't change until GitHub has ALL the latest files.
+
+YOUR LATEST CODE IS IN THIS FOLDER:
+  scentbar-github-upload
+
+CHECK — these NEW files MUST be on GitHub (if missing, site is old):
+  components/OrderBuilder.tsx
+  components/PriceGuide.tsx
+  components/FAQSection.tsx
+  lib/config.ts  (WhatsApp: 447476485466)
+
+
+METHOD 1 — GITHUB DESKTOP (EASIEST)
+------------------------------------
+1. Download GitHub Desktop: https://desktop.github.com
+2. File → Add Local Repository
+3. Choose: /Users/carterharbinson/Projects/the-scent-bar-belfast
+4. Click "Push origin"
+5. Wait 2 minutes, check Vercel deploys
+
+
+METHOD 2 — REPLACE EVERYTHING ON GITHUB WEBSITE
+------------------------------------------------
+1. Go to: https://github.com/Harpo22/Scent-bar-belfast
+
+2. DELETE all old duplicate files at the ROOT (not in folders):
+   - AboutContent.tsx, Footer.tsx, Navbar.tsx, page.tsx, layout.tsx
+   - config.ts, data.ts, logo.png, etc. (anything loose at top level)
+   Keep ONLY folders: app, components, lib, public
+   And files: package.json, package-lock.json, tsconfig.json, etc.
+
+3. Open this folder on your Mac:
+   Documents/websites/scentbar-github-upload
+
+4. For EACH folder, go into GitHub and upload/replace:
+   - app/        (upload entire folder contents)
+   - components/ (must include OrderBuilder.tsx!)
+   - lib/
+   - public/
+
+5. Upload root files if changed:
+   package.json, tsconfig.json, next.config.ts, postcss.config.mjs
+
+6. Go to Vercel → Deployments → Redeploy (if it didn't auto-deploy)
+
+
+METHOD 3 — TERMINAL (if you can sign in to GitHub)
+---------------------------------------------------
+cd ~/Projects/the-scent-bar-belfast
+git push origin main
+
+(Sign in when prompted)
+
+
+AFTER UPDATING — VERIFY ON GITHUB
+----------------------------------
+Open: github.com/Harpo22/Scent-bar-belfast/tree/main/components
+
+You MUST see: OrderBuilder.tsx
+
+Open: github.com/Harpo22/Scent-bar-belfast/blob/main/lib/config.ts
+
+WhatsApp must say: 447476485466
+
+If those are correct, Vercel will show the new site within 2 minutes.
+
+Hard refresh your browser: Cmd + Shift + R
