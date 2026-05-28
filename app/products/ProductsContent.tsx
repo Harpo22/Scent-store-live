@@ -1,38 +1,39 @@
 "use client";
 
-import Image from "next/image";
 import PageTransition from "@/components/PageTransition";
-import FadeIn from "@/components/FadeIn";
+import SectionHeading from "@/components/SectionHeading";
 import ProductCard from "@/components/ProductCard";
 import ScentCard from "@/components/ScentCard";
 import GoldButton from "@/components/GoldButton";
+import FadeIn from "@/components/FadeIn";
+import PriceGuide from "@/components/PriceGuide";
 import { products, scents } from "@/lib/data";
 
 export default function ProductsContent() {
   return (
     <PageTransition>
-      {/* Header */}
-      <section className="relative overflow-hidden pt-32 pb-16 luxury-gradient">
-        <div className="mx-auto max-w-7xl px-6 text-center lg:px-8">
+      <section className="relative overflow-hidden pt-36 pb-20 luxury-gradient md:pt-40 md:pb-24">
+        <div className="container-luxury text-center">
           <FadeIn>
-            <p className="mb-3 text-xs uppercase tracking-[0.3em] text-gold">
-              Our Collection
-            </p>
-            <h1 className="font-serif text-4xl text-cream md:text-5xl">
-              Products
-            </h1>
-            <p className="mx-auto mt-4 max-w-2xl text-muted">
-              Handcrafted home fragrance products, made with premium ingredients
-              and available in 20 signature scents.
+            <p className="eyebrow mb-4">The Collection</p>
+            <h1 className="heading-display text-4xl md:text-5xl lg:text-6xl">Products</h1>
+            <p className="body-lg mx-auto mt-8 max-w-2xl">
+              Handcrafted home fragrance from Belfast — premium wax melts, room
+              sprays, reed diffusers and refills in 20 signature scents.
             </p>
           </FadeIn>
         </div>
       </section>
 
-      {/* Products Grid */}
-      <section className="py-16 md:py-24">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      <section className="section-padding pt-0" aria-labelledby="product-grid">
+        <div className="container-luxury">
+          <SectionHeading
+            eyebrow="Shop"
+            title="Our Product Range"
+            description="Every product is available across our full scent collection. Mention your choices when ordering."
+            className="mb-14 md:mb-16"
+          />
+          <div id="product-grid" className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-10">
             {products.map((product, i) => (
               <ProductCard key={product.id} {...product} index={i} />
             ))}
@@ -40,54 +41,37 @@ export default function ProductsContent() {
         </div>
       </section>
 
-      {/* Price List */}
-      <section className="border-y border-gold/10 bg-black/50 py-16 md:py-24">
-        <div className="mx-auto max-w-4xl px-6 text-center lg:px-8">
-          <FadeIn>
-            <p className="mb-3 text-xs uppercase tracking-[0.3em] text-gold">
-              Official Price List
-            </p>
-            <h2 className="mb-8 font-serif text-3xl text-cream">
-              Full Price Guide
-            </h2>
-            <div className="gold-border mx-auto max-w-2xl overflow-hidden rounded-lg p-2 gold-glow">
-              <Image
-                src="/images/price-list.png"
-                alt="The Scent Bar Belfast Official Price List"
-                width={800}
-                height={1000}
-                className="w-full rounded-md object-contain"
-              />
-            </div>
+      <section className="section-padding luxury-gradient-subtle border-y border-gold/10">
+        <div className="container-luxury max-w-4xl">
+          <FadeIn className="mb-12 text-center md:mb-14">
+            <p className="eyebrow mb-4">Official Pricing</p>
+            <h2 className="heading-section text-3xl md:text-4xl">Full Price Guide</h2>
+          </FadeIn>
+          <FadeIn delay={0.1}>
+            <PriceGuide />
           </FadeIn>
         </div>
       </section>
 
-      {/* Scents */}
-      <section className="py-16 md:py-24">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <FadeIn className="mb-12 text-center">
-            <p className="mb-3 text-xs uppercase tracking-[0.3em] text-gold">
-              Signature Collection
-            </p>
-            <h2 className="font-serif text-3xl text-cream md:text-4xl">
-              Available Scents
-            </h2>
-            <p className="mx-auto mt-4 max-w-xl text-sm text-muted">
-              Choose from 20 carefully curated fragrances. Mention your preferred
-              scents when placing your order.
-            </p>
-            <div className="mx-auto mt-4 h-px w-16 bg-gold/50" />
-          </FadeIn>
-
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+      <section className="section-padding" aria-labelledby="scents-collection">
+        <div className="container-luxury">
+          <SectionHeading
+            eyebrow="20 Signature Scents"
+            title="Available Fragrances"
+            description="From fresh and clean to warm and exotic — choose your perfect scent when placing your order."
+          />
+          <div
+            id="scents-collection"
+            className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 md:gap-4 lg:grid-cols-5"
+          >
             {scents.map((scent, i) => (
               <ScentCard key={scent} name={scent} index={i} />
             ))}
           </div>
-
-          <FadeIn className="mt-16 text-center">
-            <GoldButton href="/order">Order Your Scents</GoldButton>
+          <FadeIn className="mt-16 text-center md:mt-20">
+            <GoldButton href="/order" size="large">
+              Order Your Scents
+            </GoldButton>
           </FadeIn>
         </div>
       </section>

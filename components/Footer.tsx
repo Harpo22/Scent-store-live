@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { SITE } from "@/lib/config";
+import { SITE, WHATSAPP_NUMBER } from "@/lib/config";
+import GoldButton from "./GoldButton";
 
 const footerLinks = [
   { href: "/", label: "Home" },
@@ -11,72 +12,84 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-gold/10 bg-black">
-      <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
-        <div className="grid gap-12 md:grid-cols-3">
-          <div className="flex flex-col items-center text-center md:items-start md:text-left">
+    <footer className="border-t border-gold/10 bg-charcoal" aria-label="Site footer">
+      <div className="container-luxury section-padding-sm pb-10">
+        <div className="grid gap-14 lg:grid-cols-12 lg:gap-12">
+          <div className="lg:col-span-5">
             <Image
               src="/images/logo.png"
-              alt="The Scent Bar Belfast"
-              width={120}
-              height={120}
-              className="mb-6 h-24 w-auto object-contain"
+              alt="The Scent Bar Belfast logo"
+              width={140}
+              height={140}
+              className="mb-8 h-28 w-auto object-contain md:h-32"
             />
-            <p className="max-w-xs text-sm leading-relaxed text-muted">
+            <p className="max-w-sm text-sm leading-relaxed text-muted md:text-[0.9375rem] md:leading-7">
               {SITE.description}
+            </p>
+            <p className="mt-6 text-xs uppercase tracking-[0.25em] text-gold/80">
+              {SITE.location}
             </p>
           </div>
 
-          <div className="text-center md:text-left">
-            <h3 className="mb-4 font-serif text-sm uppercase tracking-[0.25em] text-gold-light">
-              Navigate
-            </h3>
-            <ul className="space-y-3">
-              {footerLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-cream/70 transition-colors hover:text-gold-light"
+          <div className="grid gap-10 sm:grid-cols-2 lg:col-span-4">
+            <div>
+              <h3 className="eyebrow mb-6 text-gold-light">Navigate</h3>
+              <ul className="space-y-4">
+                {footerLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-cream/70 transition-colors duration-300 hover:text-gold-light"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="eyebrow mb-6 text-gold-light">Contact</h3>
+              <ul className="space-y-4 text-sm text-cream/70">
+                <li>{SITE.location}</li>
+                <li>{SITE.deliveryNote}</li>
+                <li>
+                  <a
+                    href={`mailto:${SITE.email}`}
+                    className="transition-colors duration-300 hover:text-gold-light"
                   >
-                    {link.label}
-                  </Link>
+                    {SITE.email}
+                  </a>
                 </li>
-              ))}
-            </ul>
+                <li>
+                  <a
+                    href={`https://wa.me/${WHATSAPP_NUMBER}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gold-light transition-colors duration-300 hover:text-gold"
+                  >
+                    WhatsApp Us
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
 
-          <div className="text-center md:text-left">
-            <h3 className="mb-4 font-serif text-sm uppercase tracking-[0.25em] text-gold-light">
-              Contact
-            </h3>
-            <ul className="space-y-3 text-sm text-cream/70">
-              <li>{SITE.location}</li>
-              <li>
-                <a
-                  href={`mailto:${SITE.email}`}
-                  className="transition-colors hover:text-gold-light"
-                >
-                  {SITE.email}
-                </a>
-              </li>
-              <li>
-                <Link
-                  href="/order"
-                  className="inline-block text-gold-light transition-colors hover:text-gold"
-                >
-                  Order via WhatsApp →
-                </Link>
-              </li>
-            </ul>
+          <div className="flex flex-col justify-center lg:col-span-3">
+            <h3 className="eyebrow mb-4 text-gold-light">Ready to order?</h3>
+            <p className="mb-6 text-sm leading-relaxed text-muted">
+              Place your order in minutes via WhatsApp. Fast, personal, and local.
+            </p>
+            <GoldButton href="/order">Order Now</GoldButton>
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-gold/10 pt-8 md:flex-row">
+        <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-gold/10 pt-8 md:flex-row">
           <p className="text-xs uppercase tracking-[0.2em] text-muted">
             © {new Date().getFullYear()} {SITE.name}. All rights reserved.
           </p>
-          <p className="font-serif text-xs italic text-gold/60">
-            Thank you for supporting a local business ♥
+          <p className="font-serif text-sm italic text-gold/50">
+            Thank you for supporting a local Belfast business
           </p>
         </div>
       </div>

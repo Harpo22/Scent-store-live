@@ -1,42 +1,64 @@
 import type { Metadata } from "next";
-import { Cinzel, Montserrat } from "next/font/google";
+import { Cormorant_Garamond, DM_Sans } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { SITE } from "@/lib/config";
 import "./globals.css";
 
-const cinzel = Cinzel({
-  variable: "--font-cinzel",
+const cormorant = Cormorant_Garamond({
+  variable: "--font-cormorant",
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
   display: "swap",
 });
 
-const montserrat = Montserrat({
-  variable: "--font-montserrat",
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
   title: {
-    default: `${SITE.name} | ${SITE.tagline}`,
+    default: `${SITE.name} | Luxury Home Fragrance Belfast`,
     template: `%s | ${SITE.name}`,
   },
   description: SITE.description,
   keywords: [
-    "home fragrance",
-    "Belfast",
-    "wax melts",
-    "room sprays",
-    "reed diffusers",
-    "luxury scents",
+    "home fragrance Belfast",
+    "luxury wax melts Northern Ireland",
+    "room sprays Belfast",
+    "reed diffusers NI",
+    "The Scent Bar Belfast",
+    "handcrafted scents Belfast",
+    "local fragrance business Northern Ireland",
   ],
   openGraph: {
-    title: SITE.name,
+    title: `${SITE.name} | Luxury Home Fragrance`,
     description: SITE.description,
     locale: "en_GB",
     type: "website",
   },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
+const localBusinessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: SITE.name,
+  description: SITE.description,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Belfast",
+    addressRegion: "Northern Ireland",
+    addressCountry: "GB",
+  },
+  areaServed: "Northern Ireland",
+  email: SITE.email,
 };
 
 export default function RootLayout({
@@ -45,10 +67,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${cinzel.variable} ${montserrat.variable} scroll-smooth`}>
-      <body className="min-h-screen bg-background text-foreground antialiased">
+    <html lang="en-GB" className={`${cormorant.variable} ${dmSans.variable} scroll-smooth`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+        />
+      </head>
+      <body className="min-h-screen overflow-x-hidden bg-background text-foreground antialiased">
         <Navbar />
-        <main className="min-h-screen">{children}</main>
+        <main id="main-content">{children}</main>
         <Footer />
       </body>
     </html>

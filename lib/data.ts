@@ -60,7 +60,100 @@ export const scents = [
   "Paradoxe",
 ] as const;
 
-export const ORDER_PLACEHOLDER = `Example:
-2x Room Sprays - Baby Powder
-1x Reed Diffuser - Savage
-7x Wax Melts - Clean Cotton`;
+export const ORDER_PLACEHOLDER = `Example: 2 x Savage, 1 x Alien, 1 x Million. Delivery to Belfast.`;
+
+export const trustSignals = [
+  {
+    title: "Local Belfast Business",
+    description: "Proudly based in Belfast, serving customers across Northern Ireland.",
+  },
+  {
+    title: "Fast WhatsApp Ordering",
+    description: "Place your order in seconds. We confirm quickly and personally.",
+  },
+  {
+    title: "Premium Quality Scents",
+    description: "Handcrafted with quality fragrance oils for a long-lasting, luxury finish.",
+  },
+  {
+    title: "Collection & Delivery",
+    description: "Flexible collection and local delivery options across Belfast and NI.",
+  },
+] as const;
+
+export const orderSteps = [
+  {
+    step: "01",
+    title: "Choose Your Scents",
+    description: "Browse our collection and pick your favourite products and fragrances.",
+  },
+  {
+    step: "02",
+    title: "Select Your Items",
+    description: "Choose a product and scent from the dropdowns, then tap Add to Order.",
+  },
+  {
+    step: "03",
+    title: "Send via WhatsApp",
+    description: "Tap the button — your order opens in WhatsApp, ready to send.",
+  },
+  {
+    step: "04",
+    title: "We Confirm & Deliver",
+    description: "We reply to confirm availability, total, and collection or delivery.",
+  },
+] as const;
+
+export const reviews = [
+  {
+    name: "Sarah M.",
+    location: "Belfast",
+    text: "The scents are absolutely gorgeous — my home smells like a luxury boutique. Ordering through WhatsApp was so easy.",
+    rating: 5,
+  },
+  {
+    name: "Emma K.",
+    location: "Lisburn",
+    text: "Best wax melts I've ever bought. Long-lasting fragrance and beautiful presentation. Will definitely order again.",
+    rating: 5,
+  },
+  {
+    name: "Claire D.",
+    location: "Bangor",
+    text: "Love supporting a local Belfast business. The reed diffuser looks premium and the Savage scent is incredible.",
+    rating: 5,
+  },
+] as const;
+
+export const faqs = [
+  {
+    question: "How do I place an order?",
+    answer:
+      "Fill in the Order Now form with your details and scent choices, then tap Send via WhatsApp. We'll confirm your order and arrange collection or delivery.",
+  },
+  {
+    question: "Do you deliver across Northern Ireland?",
+    answer:
+      "Yes — we offer local delivery across Belfast and Northern Ireland, as well as collection. Delivery details are confirmed when we reply to your WhatsApp order.",
+  },
+  {
+    question: "How many scents are available?",
+    answer:
+      "We currently offer 20 signature scents across all product types, from fresh and clean to warm and exotic. View the full list on our Products page.",
+  },
+  {
+    question: "How long do wax melts last?",
+    answer:
+      "Each segment of our snap bar wax melts provides several hours of beautiful fragrance. Many customers enjoy multiple sessions from a single bar.",
+  },
+  {
+    question: "Can I mix scents in one order?",
+    answer:
+      "Absolutely. List each product and scent in your order details — for example, room sprays, wax melts, and diffusers in different fragrances.",
+  },
+  {
+    question: "What payment methods do you accept?",
+    answer:
+      "Payment is arranged when we confirm your order via WhatsApp. We keep the process simple and personal for every customer.",
+  },
+] as const;

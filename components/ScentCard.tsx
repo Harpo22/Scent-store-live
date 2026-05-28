@@ -10,14 +10,13 @@ type ScentCardProps = {
 export default function ScentCard({ name, index = 0 }: ScentCardProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.95 }}
-      whileInView={{ opacity: 1, scale: 1 }}
+      initial={{ opacity: 0, y: 12 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-20px" }}
-      transition={{ duration: 0.4, delay: (index % 10) * 0.04 }}
-      whileHover={{ scale: 1.03 }}
-      className="group gold-border rounded-md bg-black/30 px-4 py-3 text-center transition-all duration-300 hover:border-gold/50 hover:bg-gold/5 gold-glow-hover"
+      transition={{ duration: 0.5, delay: (index % 8) * 0.04, ease: [0.22, 1, 0.36, 1] }}
+      className="group premium-card px-4 py-4 text-center md:px-5 md:py-5 gold-glow-hover"
     >
-      <span className="text-sm text-gold-light transition-colors group-hover:text-gold">
+      <span className="text-sm text-gold-light/90 transition-colors duration-300 group-hover:text-gold md:text-[0.9375rem]">
         {name}
       </span>
     </motion.div>
